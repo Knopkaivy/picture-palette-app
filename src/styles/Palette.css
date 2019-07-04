@@ -1,0 +1,89 @@
+.Palette {
+	margin: 0;
+	padding: 0;
+	width: 100vw;
+	height: 95vh;
+}
+.Palette-container {
+	width: 100vw;
+	max-width: 760px;
+	height: 90vh;
+	margin: 0 auto;
+	padding: 0;
+	display: flex;
+	/* flex-wrap: wrap; */
+	flex-direction: column;
+}
+.Palette-image-container {
+	width: 100vw;
+	max-width: 760px;
+	padding: 0;
+	flex-grow: 0;
+}
+.Palette-image {
+	width: calc(100vw - 8px);
+	border-radius: 4px;
+	object-fit: cover;
+	max-width: 752px;
+	max-height: 60vh;
+	margin: 0 4px;
+	box-sizing: border-box;
+}
+.Palette-colors-list {
+	max-width: 760px;
+	flex: 1 1 150px;
+	display: flex;
+}
+.Palette-colors-list-item {
+	flex: 1 1 200px;
+	max-width: 200px;
+	margin: 4px;
+	height: calc(100% - 8px);
+	text-transform: uppercase;
+	position: relative;
+	border-radius: 4px;
+}
+.Palette-colors-list-item:hover button {
+	opacity: 1;
+}
+.Color-name {
+	color: rgba(255, 255, 255, 0.8);
+	font-size: .8rem;
+	padding-left: 4px;
+}
+.Copy-button,
+.Shades-button,
+.Hide-button {
+	outline: none;
+	border: none;
+	cursor: pointer;
+	font-family: inherit;
+	text-transform: uppercase;
+	padding: 4px;
+	box-sizing: border-box;
+	color: rgba(255, 255, 255, 0.8);
+	background-color: rgba(255, 255, 255, 0);
+	position: absolute;
+	display: inline-block;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+}
+.Copy-button {
+	font-size: 1rem;
+	top: 50%;
+	left: 50%;
+	width: 60px;
+	height: 20px;
+	margin-left: -30px;
+	margin-top: -10px;
+	opacity: 0;
+	transition: opacity 0.2s ease-in-out;
+}
+.Shades-button {
+	bottom: 0;
+	right: 0;
+}
+.Hide-button {
+	bottom: 0;
+	left: 0;
+}

@@ -1,0 +1,16 @@
+.Footer {
+	margin: 0 auto;
+	padding: 0;
+	width: 100vw;
+	height: 5vh;
+	max-width: 760px;
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+.Footer-item {
+	margin: 0 4px;
+}
+.Footer-credit {
+	font-size: 0.8rem;
+}
