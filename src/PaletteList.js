@@ -12,7 +12,7 @@ class PaletteList extends Component {
 		return (
 			<div className='Palette-list-container'>
 				{this.state.palettes.map((palette) => (
-					<MiniPalette key={palette.id} style={{ background: `url(${palette.imageURL})` }} />
+					<MiniPalette key={palette.id} imageURL={palette.imageURL} colors={palette.colors} />
 				))}
 			</div>
 		);

@@ -1,5 +1,12 @@
+::-webkit-scrollbar {
+	display: none;
+}
 html {
 	font-size: 16px;
+	width: 100vw;
+	height: 100vh;
+	margin: 0;
+	padding: 0;
 }
 body {
 	margin: 0;
