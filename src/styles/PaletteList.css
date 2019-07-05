@@ -1,0 +1,13 @@
+.Palette-list-container {
+	width: 100vw;
+	max-width: 760px;
+	height: 90vh;
+	margin: 0 auto;
+	padding: 0;
+	display: flex;
+}
+.Mini-Palette {
+	margin: 4px;
+	flex: 1 1 100px;
+	height: 160px;
+}

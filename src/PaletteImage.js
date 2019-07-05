@@ -4,7 +4,7 @@ const PaletteImage = (props) => {
 	return (
 		<div className='Palette-image-container'>
 			<picture>
-				<img className='Palette-image' src={props.imageUrl} alt={props.imageName} />
+				<img className='Palette-image' src={props.imageURL} alt={props.imageName} />
 			</picture>
 		</div>
 	);

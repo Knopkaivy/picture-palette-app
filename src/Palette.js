@@ -12,15 +12,14 @@ class Palette extends Component {
 		super(props);
 		this.state = {
 			id: 'arizona',
-			imageName: 'Arizona',
-			imageUrl:
+			// imageName: 'Arizona',
+			imageURL:
 				'https://images.unsplash.com/photo-1542810444-ad1a29a9fd7b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80',
-			photoCredit: 'Photo by Francesco Ungaro on Unsplash',
+			// photoCredit: 'Photo by Francesco Ungaro on Unsplash',
 			colors: [
 				{
 					colorId: 'dark-goldenrod',
 					colorName: 'Dark Goldenrod',
-					hex: '#B93905',
 					shades: [
 						{
 							hue: '100',
@@ -47,7 +46,6 @@ class Palette extends Component {
 				{
 					colorId: 'light-sky-blue',
 					colorName: 'Light Sky Blue',
-					hex: '#52E1FA',
 					shades: [
 						{
 							hue: '100',
@@ -74,7 +72,6 @@ class Palette extends Component {
 				{
 					colorId: 'pale-goldenrod',
 					colorName: 'Pale Goldenrod',
-					hex: '#EACE92',
 					shades: [
 						{
 							hue: '100',
@@ -101,7 +98,6 @@ class Palette extends Component {
 				{
 					colorId: 'dark-red',
 					colorName: 'Dark Red',
-					hex: '#882208',
 					shades: [
 						{
 							hue: '100',
@@ -128,7 +124,6 @@ class Palette extends Component {
 				{
 					colorId: 'saddle-brown',
 					colorName: 'Saddle Brown',
-					hex: '#120404',
 					shades: [
 						{
 							hue: '100',
@@ -171,14 +166,15 @@ class Palette extends Component {
 		return (
 			<div className='Palette'>
 				<div className='Palette-container'>
-					<PaletteImage imageUrl={this.state.imageUrl} imageName={this.state.imageName} />
+					<PaletteImage imageURL={this.state.imageURL} imageName={this.state.imageName} />
 					<PaletteColorsList>
 						{this.state.colors.map((color) => (
 							<ColorBox
 								key={color.colorId}
 								id={color.colorId}
 								colorName={color.colorName}
-								hex={color.hex}
+								// hex={color.hex}
+								hex={color.shades[2].hex}
 								currentShadesId={this.state.currentShadesId}
 								showShades={true}
 								selectCurrentShades={this.selectCurrentShades}
