@@ -7,7 +7,7 @@ import Footer from './Footer';
 
 import './styles/Palette.css';
 
-class Palette extends Component {
+class PaletteDetail extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -196,4 +196,4 @@ class Palette extends Component {
 	}
 }
 
-export default Palette;
+export default PaletteDetail;

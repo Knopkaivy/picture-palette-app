@@ -22,7 +22,11 @@ class Navbar extends Component {
 	render() {
 		return (
 			<div>
-				<NewPaletteModal open={this.state.isModalOpen} handleClose={this.handleModalClose} />
+				<NewPaletteModal
+					open={this.state.isModalOpen}
+					handleClose={this.handleModalClose}
+					createNewPalette={this.props.generateNewPalette}
+				/>
 				<header className='Navbar'>
 					<Link to='/' className='Logo'>
 						Logo
