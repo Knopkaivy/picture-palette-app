@@ -28,7 +28,7 @@ class App extends Component {
 	}
 	savePalette(newPalette) {
 		console.log('saving new palette now!');
-		console.log(newPalette);
+		console.log('newPalette is ', newPalette);
 		console.log(newPalette.colors[0].shades[2].hex);
 		this.setState({ palettes: [ ...this.state.palettes, newPalette ] }, this.syncLocalStorage);
 	}

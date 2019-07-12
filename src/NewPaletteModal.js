@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { ColorExtractor } from 'react-color-extractor';
+import * as Vibrant from 'node-vibrant';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
@@ -18,20 +18,30 @@ class NewPaletteModal extends Component {
 		};
 		this.updateImageURL = this.updateImageURL.bind(this);
 		this.createNewPalette = this.createNewPalette.bind(this);
-		this.getColors = this.getColors.bind(this);
+		this.generateColors = this.generateColors.bind(this);
 		this.clearData = this.clearData.bind(this);
 	}
 	updateImageURL(evt) {
 		this.setState({ newImageURL: evt.target.value });
 	}
-	createNewPalette() {
+
+	createNewPalette = async () => {
+		await this.generateColors();
+		console.log('from createNewPalette func', this.state.colors);
 		this.props.createNewPalette(this.state.newImageURL, this.state.colors);
 		this.clearData();
 		this.props.handleClose();
-	}
-	getColors(colors) {
-		this.setState((state) => ({ colors: [ ...state.colors, ...colors ] }));
-	}
+	};
+
+	generateColors = async () => {
+		let colors = [];
+		let swatches = await Vibrant.from(this.state.newImageURL).getSwatches();
+		for (let swatch in swatches) {
+			if (swatches.hasOwnProperty(swatch) && swatches[swatch]) colors.push(swatches[swatch].getHex());
+		}
+		this.setState({ colors: colors });
+		console.log('from generateColors func', this.state.colors);
+	};
 	clearData() {
 		this.setState({
 			newImageURL:
@@ -65,13 +75,6 @@ class NewPaletteModal extends Component {
 						Create
 					</Button>
 				</DialogActions>
-				<ColorExtractor getColors={this.getColors}>
-					<img
-						src={this.state.newImageURL}
-						style={{ width: 0, height: 0 }}
-						alt='uploaded to generate colors'
-					/>
-				</ColorExtractor>
 			</Dialog>
 		);
 	}
