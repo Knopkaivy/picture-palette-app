@@ -22,9 +22,19 @@ class App extends Component {
 		let colorPalette = {};
 		colorPalette.id = uuid.v4();
 		colorPalette.imageURL = imageURL;
-		colorPalette.colors = colors.map((color) => ({
-			shades: chroma.scale([ 'white', color ]).colors(6).slice(1).map((shade) => ({ hex: `${shade}` }))
-		}));
+		colorPalette.colors = colors.map((color) => {
+			let arr = [
+				chroma(color).brighten(1),
+				chroma(color).brighten(0.5),
+				color,
+				chroma(color).darken(0.5),
+				chroma(color).darken(1)
+			];
+			return {
+				// shades: chroma.scale([ 'white', color ]).colors(6).slice(1).map((shade) => ({ hex: `${shade}` }))
+				shades: arr.map((shade) => ({ hex: `${shade}` }))
+			};
+		});
 		this.savePalette(colorPalette);
 	}
 	savePalette(newPalette) {
