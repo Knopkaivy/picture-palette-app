@@ -4,7 +4,7 @@ import chroma from 'chroma-js';
 import uuid from 'uuid';
 
 import Navbar from './Navbar';
-import PaletteDetail from './PaletteDetail';
+import Palette from './Palette';
 import PaletteList from './PaletteList';
 import CreatePalette from './CreatePalette';
 import seedPalettes from './seedPalettes';
@@ -16,6 +16,7 @@ class App extends Component {
 		this.state = { palettes: savedPalettes || seedPalettes };
 		this.generateNewPalette = this.generateNewPalette.bind(this);
 		this.savePalette = this.savePalette.bind(this);
+		this.findPalette = this.findPalette.bind(this);
 	}
 	generateNewPalette(imageURL, colors) {
 		let colorPalette = {};
@@ -27,15 +28,16 @@ class App extends Component {
 		this.savePalette(colorPalette);
 	}
 	savePalette(newPalette) {
-		console.log('saving new palette now!');
-		console.log('newPalette is ', newPalette);
-		console.log(newPalette.colors[0].shades[2].hex);
 		this.setState({ palettes: [ ...this.state.palettes, newPalette ] }, this.syncLocalStorage);
 	}
 
 	syncLocalStorage() {
 		//save palettes to local storage
 		window.localStorage.setItem('palettes', JSON.stringify(this.state.palettes));
+	}
+	findPalette(id) {
+		let foundPalette = this.state.palettes.find((palette) => palette.id === id);
+		return foundPalette;
 	}
 	render() {
 		return (
@@ -49,7 +51,13 @@ class App extends Component {
 						render={(routeProps) => <PaletteList palettes={this.state.palettes} {...routeProps} />}
 					/>
 					<Route exact path='/new' render={(routeProps) => <CreatePalette {...routeProps} />} />
-					<Route exact path='/palette' render={(routeProps) => <PaletteDetail {...routeProps} />} />
+					<Route
+						exact
+						path='/palette/:id'
+						render={(routeProps) => (
+							<Palette palette={this.findPalette(routeProps.match.params.id)} {...routeProps} />
+						)}
+					/>
 				</Switch>
 			</div>
 		);

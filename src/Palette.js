@@ -7,15 +7,13 @@ import Footer from './Footer';
 
 import './styles/Palette.css';
 
-class PaletteDetail extends Component {
+class Palette extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
 			id: 'arizona',
-			// imageName: 'Arizona',
 			imageURL:
 				'https://images.unsplash.com/photo-1542810444-ad1a29a9fd7b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80',
-			// photoCredit: 'Photo by Francesco Ungaro on Unsplash',
 			colors: [
 				{
 					colorId: 'dark-goldenrod',
@@ -156,24 +154,24 @@ class PaletteDetail extends Component {
 		this.hideShadesList = this.hideShadesList.bind(this);
 	}
 	selectCurrentShades(id) {
-		let shades = this.state.colors.filter((color) => color.shades[2].hex === id);
+		let shades = this.props.palette.colors.filter((color) => color.shades[2].hex === id);
 		this.setState({ currentShadesId: id, currentShades: shades[0].shades, showShadesList: true });
 	}
 	hideShadesList() {
 		this.setState({ showShadesList: false });
 	}
+
 	render() {
 		return (
 			<div className='Palette'>
 				<div className='Palette-container'>
-					<PaletteImage imageURL={this.state.imageURL} imageName={this.state.imageName} />
+					<PaletteImage imageURL={this.props.palette.imageURL} imageName={this.props.palette.imageName} />
 					<PaletteColorsList>
-						{this.state.colors.map((color) => (
+						{this.props.palette.colors.map((color) => (
 							<ColorBox
 								key={color.shades[2].hex}
 								id={color.shades[2].hex}
 								colorName={color.shades[2].hex}
-								// hex={color.hex}
 								hex={color.shades[2].hex}
 								currentShadesId={this.state.currentShadesId}
 								showShades={true}
@@ -196,4 +194,4 @@ class PaletteDetail extends Component {
 	}
 }
 
-export default PaletteDetail;
+export default Palette;
