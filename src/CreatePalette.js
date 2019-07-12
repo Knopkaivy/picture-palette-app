@@ -11,7 +11,7 @@ const CreatePalette = (props) => {
 			{(palette) => {
 				return (
 					<div className='CreatePalette-container'>
-						<PaletteImage imageUrl={imageURL} imageName='uploaded image' />
+						<PaletteImage imageURL={imageURL} imageName='uploaded image' />
 
 						<div style={{ backgroundColor: palette.lightVibrant }}>lightVibrant</div>
 						<div style={{ backgroundColor: palette.vibrant }}>vibrant</div>

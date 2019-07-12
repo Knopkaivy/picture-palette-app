@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { ColorExtractor } from 'react-color-extractor';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
@@ -11,17 +12,32 @@ class NewPaletteModal extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			newImageURL: null
+			newImageURL:
+				'https://images.unsplash.com/photo-1544938400-bdf4ea7a2e43?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+			colors: []
 		};
 		this.updateImageURL = this.updateImageURL.bind(this);
 		this.createNewPalette = this.createNewPalette.bind(this);
+		this.getColors = this.getColors.bind(this);
+		this.clearData = this.clearData.bind(this);
 	}
 	updateImageURL(evt) {
 		this.setState({ newImageURL: evt.target.value });
 	}
 	createNewPalette() {
-		this.props.createNewPalette(this.state.newImageURL, () => this.setState({ newImageURL: null }));
+		this.props.createNewPalette(this.state.newImageURL, this.state.colors);
+		this.clearData();
 		this.props.handleClose();
+	}
+	getColors(colors) {
+		this.setState((state) => ({ colors: [ ...state.colors, ...colors ] }));
+	}
+	clearData() {
+		this.setState({
+			newImageURL:
+				'https://images.unsplash.com/photo-1544938400-bdf4ea7a2e43?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80',
+			colors: []
+		});
 	}
 	render() {
 		return (
@@ -49,6 +65,13 @@ class NewPaletteModal extends Component {
 						Create
 					</Button>
 				</DialogActions>
+				<ColorExtractor getColors={this.getColors}>
+					<img
+						src={this.state.newImageURL}
+						style={{ width: 0, height: 0 }}
+						alt='uploaded to generate colors'
+					/>
+				</ColorExtractor>
 			</Dialog>
 		);
 	}

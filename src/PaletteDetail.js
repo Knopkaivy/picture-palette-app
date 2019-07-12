@@ -156,7 +156,7 @@ class PaletteDetail extends Component {
 		this.hideShadesList = this.hideShadesList.bind(this);
 	}
 	selectCurrentShades(id) {
-		let shades = this.state.colors.filter((color) => color.colorId === id);
+		let shades = this.state.colors.filter((color) => color.shades[2].hex === id);
 		this.setState({ currentShadesId: id, currentShades: shades[0].shades, showShadesList: true });
 	}
 	hideShadesList() {
@@ -170,9 +170,9 @@ class PaletteDetail extends Component {
 					<PaletteColorsList>
 						{this.state.colors.map((color) => (
 							<ColorBox
-								key={color.colorId}
-								id={color.colorId}
-								colorName={color.colorName}
+								key={color.shades[2].hex}
+								id={color.shades[2].hex}
+								colorName={color.shades[2].hex}
 								// hex={color.hex}
 								hex={color.shades[2].hex}
 								currentShadesId={this.state.currentShadesId}
@@ -186,11 +186,11 @@ class PaletteDetail extends Component {
 					<PaletteColorsList>
 						{this.state.showShadesList &&
 							this.state.currentShades.map((shade) => (
-								<ColorBox key={shade.hue} colorName={shade.hue} hex={shade.hex} showShades={false} />
+								<ColorBox key={shade.hex} colorName={shade.hex} hex={shade.hex} showShades={false} />
 							))}
 					</PaletteColorsList>
 				</div>
-				<Footer imageName={this.state.imageName} credit={this.state.photoCredit} />
+				<Footer />
 			</div>
 		);
 	}

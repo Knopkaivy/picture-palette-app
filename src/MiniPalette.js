@@ -8,7 +8,11 @@ const MiniPalette = (props) => {
 			</picture>
 			<div className='Mini-Palette-Colors-List'>
 				{props.colors.map((color) => (
-					<div className='Mini-Palette-Color-Box' style={{ backgroundColor: color.shades[2].hex }} />
+					<div
+						className='Mini-Palette-Color-Box'
+						key={color.shades[2].hex}
+						style={{ backgroundColor: color.shades[2].hex }}
+					/>
 				))}
 			</div>
 		</div>
