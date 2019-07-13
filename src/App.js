@@ -31,14 +31,13 @@ class App extends Component {
 				chroma(color).darken(1)
 			];
 			return {
-				// shades: chroma.scale([ 'white', color ]).colors(6).slice(1).map((shade) => ({ hex: `${shade}` }))
 				shades: arr.map((shade) => ({ hex: `${shade}` }))
 			};
 		});
 		this.savePalette(colorPalette);
 	}
 	savePalette(newPalette) {
-		this.setState({ palettes: [ ...this.state.palettes, newPalette ] }, this.syncLocalStorage);
+		this.setState({ palettes: [ newPalette, ...this.state.palettes ] }, this.syncLocalStorage);
 	}
 	findPalette(id) {
 		let foundPalette = this.state.palettes.find((palette) => palette.id === id);
