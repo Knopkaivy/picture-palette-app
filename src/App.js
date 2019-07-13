@@ -6,7 +6,6 @@ import uuid from 'uuid';
 import Navbar from './Navbar';
 import Palette from './Palette';
 import PaletteList from './PaletteList';
-import CreatePalette from './CreatePalette';
 import seedPalettes from './seedPalettes';
 
 class App extends Component {
@@ -43,6 +42,7 @@ class App extends Component {
 	}
 	findPalette(id) {
 		let foundPalette = this.state.palettes.find((palette) => palette.id === id);
+		if (foundPalette === undefined) foundPalette = this.state.palettes[0]; //if user enters nonexistent id in address bar
 		return foundPalette;
 	}
 	deletePalette(id) {
@@ -72,12 +72,20 @@ class App extends Component {
 							/>
 						)}
 					/>
-					<Route exact path='/new' render={(routeProps) => <CreatePalette {...routeProps} />} />
 					<Route
 						exact
 						path='/palette/:id'
 						render={(routeProps) => (
 							<Palette palette={this.findPalette(routeProps.match.params.id)} {...routeProps} />
+						)}
+					/>
+					<Route
+						render={(routeProps) => (
+							<PaletteList
+								palettes={this.state.palettes}
+								deletePalette={this.deletePalette}
+								{...routeProps}
+							/>
 						)}
 					/>
 				</Switch>
