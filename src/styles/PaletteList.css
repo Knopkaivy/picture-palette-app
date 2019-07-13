@@ -16,6 +16,22 @@
 	height: 288px;
 	display: flex;
 	flex-direction: column;
+	position: relative;
+}
+.Mini-Palette:hover .deleteIcon {
+	opacity: 0.9;
+}
+.deleteIcon {
+	color: white;
+	background-color: #eb3d30;
+	width: 20px;
+	height: 20px;
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	padding: 10px;
+	z-index: 10;
+	opacity: 0;
 }
 .Mini-Palette-img {
 	object-fit: cover;

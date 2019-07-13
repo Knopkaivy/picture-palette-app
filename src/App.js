@@ -17,6 +17,7 @@ class App extends Component {
 		this.generateNewPalette = this.generateNewPalette.bind(this);
 		this.savePalette = this.savePalette.bind(this);
 		this.findPalette = this.findPalette.bind(this);
+		this.deletePalette = this.deletePalette.bind(this);
 	}
 	generateNewPalette(imageURL, colors) {
 		let colorPalette = {};
@@ -40,14 +41,19 @@ class App extends Component {
 	savePalette(newPalette) {
 		this.setState({ palettes: [ ...this.state.palettes, newPalette ] }, this.syncLocalStorage);
 	}
-
-	syncLocalStorage() {
-		//save palettes to local storage
-		window.localStorage.setItem('palettes', JSON.stringify(this.state.palettes));
-	}
 	findPalette(id) {
 		let foundPalette = this.state.palettes.find((palette) => palette.id === id);
 		return foundPalette;
+	}
+	deletePalette(id) {
+		this.setState(
+			(st) => ({ palettes: st.palettes.filter((palette) => palette.id !== id) }),
+			this.syncLocalStorage
+		);
+	}
+	syncLocalStorage() {
+		//save palettes to local storage
+		window.localStorage.setItem('palettes', JSON.stringify(this.state.palettes));
 	}
 	render() {
 		return (
@@ -58,7 +64,13 @@ class App extends Component {
 					<Route
 						exact
 						path='/'
-						render={(routeProps) => <PaletteList palettes={this.state.palettes} {...routeProps} />}
+						render={(routeProps) => (
+							<PaletteList
+								palettes={this.state.palettes}
+								deletePalette={this.deletePalette}
+								{...routeProps}
+							/>
+						)}
 					/>
 					<Route exact path='/new' render={(routeProps) => <CreatePalette {...routeProps} />} />
 					<Route
