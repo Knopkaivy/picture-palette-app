@@ -35,7 +35,7 @@ class NewPaletteModal extends Component {
 
 	generateColors = async () => {
 		let colors = [];
-		let swatches = await Vibrant.from(this.state.newImageURL).getSwatches();
+		let swatches = await Vibrant.from(this.state.newImageURL).quality(1).getSwatches();
 		for (let swatch in swatches) {
 			if (swatches.hasOwnProperty(swatch) && swatches[swatch]) colors.push(swatches[swatch].getHex());
 		}
