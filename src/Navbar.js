@@ -36,7 +36,7 @@ class Navbar extends Component {
 							New
 						</Button>
 						<Link to='/' className='Navbar-link'>
-							Home
+							All
 						</Link>
 					</div>
 				</header>

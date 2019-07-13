@@ -10,6 +10,7 @@
 .Navbar a {
 	color: inherit;
 	text-decoration: none;
+	text-transform: uppercase;
 }
 .Logo {
 	margin-left: 4px;
