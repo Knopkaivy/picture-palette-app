@@ -3,7 +3,7 @@ import React, { Component } from 'react';
 import PaletteImage from './PaletteImage';
 import PaletteColorsList from './PaletteColorsList';
 import ColorBox from './ColorBox';
-import Footer from './Footer';
+// import Footer from './Footer';
 
 import './styles/Palette.css';
 
@@ -188,7 +188,7 @@ class Palette extends Component {
 							))}
 					</PaletteColorsList>
 				</div>
-				<Footer />
+				{/* <Footer /> */}
 			</div>
 		);
 	}

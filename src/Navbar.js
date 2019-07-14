@@ -27,19 +27,21 @@ class Navbar extends Component {
 					handleClose={this.handleModalClose}
 					createNewPalette={this.props.generateNewPalette}
 				/>
-				<header className='Navbar'>
-					<Link to='/' className='Logo'>
-						Logo
-					</Link>
-					<div className='Navbar-links-container'>
-						<Button className='Navbar-link' onClick={this.handleModalOpen}>
-							New
-						</Button>
-						<Link to='/' className='Navbar-link'>
-							All
+				<div className='Navbar-container'>
+					<header className='Navbar'>
+						<Link to='/' className='Logo'>
+							Logo
 						</Link>
-					</div>
-				</header>
+						<div className='Navbar-links-container'>
+							<Button className='Navbar-link' onClick={this.handleModalOpen}>
+								New
+							</Button>
+							<Link to='/' className='Navbar-link'>
+								All
+							</Link>
+						</div>
+					</header>
+				</div>
 			</div>
 		);
 	}
