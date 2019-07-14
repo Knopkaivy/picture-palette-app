@@ -26,7 +26,14 @@
 	flex: 1 1 50px;
 	display: flex;
 }
-.Palette-colors-list-item {
+.Color-box-dark {
+	color: #1f1c0c;
+}
+.Color-box-light {
+	color: rgba(255, 255, 255, 0.8);
+}
+.Color-box-dark,
+.Color-box-light {
 	flex: 1 1 50px;
 	margin: 4px;
 	height: calc(100% - 8px);
@@ -34,13 +41,15 @@
 	position: relative;
 	border-radius: 4px;
 }
-.Palette-colors-list-item:hover button {
+.Color-box-dark:hover button,
+.Color-box-light:hover button {
 	opacity: 1;
 }
 .Color-name {
-	color: rgba(255, 255, 255, 0.8);
+	color: inherit;
 	font-size: .8rem;
 	padding-left: 4px;
+	text-transform: lowercase;
 }
 .Copy-button,
 .Shades-button,
@@ -49,10 +58,12 @@
 	border: none;
 	cursor: pointer;
 	font-family: inherit;
-	text-transform: uppercase;
+	font-weight: 400;
+	font-size: inherit;
+	text-transform: capitalize;
 	padding: 4px;
 	box-sizing: border-box;
-	color: rgba(255, 255, 255, 0.8);
+	color: inherit;
 	background-color: rgba(255, 255, 255, 0);
 	position: absolute;
 	display: inline-block;

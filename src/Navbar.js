@@ -30,14 +30,14 @@ class Navbar extends Component {
 				<div className='Navbar-container'>
 					<header className='Navbar'>
 						<Link to='/' className='Logo'>
-							Logo
+							Make A Palette
 						</Link>
 						<div className='Navbar-links-container'>
 							<Button className='Navbar-link' onClick={this.handleModalOpen}>
-								New
+								Make
 							</Button>
 							<Link to='/' className='Navbar-link'>
-								All
+								See All
 							</Link>
 						</div>
 					</header>

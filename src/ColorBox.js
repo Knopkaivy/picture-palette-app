@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import chroma from 'chroma-js';
 
 class ColorBox extends Component {
 	constructor(props) {
@@ -27,7 +28,11 @@ class ColorBox extends Component {
 	render() {
 		return (
 			<CopyToClipboard text={this.props.hex} onCopy={this.handleCopy}>
-				<div className='Palette-colors-list-item' style={{ backgroundColor: this.props.hex }}>
+				{/* <div className='Color-box' style={{ backgroundColor: this.props.hex }}> */}
+				<div
+					className={chroma(this.props.hex).luminance() > 0.5 ? 'Color-box-dark' : 'Color-box-light'}
+					style={{ backgroundColor: this.props.hex }}
+				>
 					<div className='Color-name'>{this.props.colorName}</div>
 					<button className='Copy-button'>{this.state.copied ? 'Copied!' : 'Copy'}</button>
 					{this.props.showShades && (
