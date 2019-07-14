@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import NewPaletteModal from './NewPaletteModal';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 import './styles/Navbar.css';
 
 class Navbar extends Component {
@@ -33,9 +33,9 @@ class Navbar extends Component {
 							Make A Palette
 						</Link>
 						<div className='Navbar-links-container'>
-							<Button className='Navbar-link' onClick={this.handleModalOpen}>
+							<button className='Navbar-button' onClick={this.handleModalOpen}>
 								Make
-							</Button>
+							</button>
 							<Link to='/' className='Navbar-link'>
 								See All
 							</Link>

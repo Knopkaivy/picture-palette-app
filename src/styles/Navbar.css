@@ -24,11 +24,24 @@
 }
 .Logo {
 	margin-left: 4px;
+	font-size: 1.2rem;
 	font-weight: 600;
 	text-transform: capitalize;
+	color: #e03624 !important;
 }
+.Navbar-button {
+	border: none;
+	outline: none;
+	cursor: pointer;
+	border-radius: 4px;
+	background-color: #e03624;
+	color: white;
+	margin-right: 16px;
+}
+.Navbar-button,
 .Navbar-link {
-	margin: 0 4px;
 	font-size: inherit;
-	text-transform: capitalize !important;
+	font-family: inherit;
+	font-weight: inherit;
+	text-transform: capitalize;
 }
