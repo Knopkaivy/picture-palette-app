@@ -1,42 +1,33 @@
-.Palette {
-	margin: 0;
-	padding: 0;
-	width: 100vw;
-	height: 100vh;
-}
 .Palette-container {
 	width: 100vw;
-	max-width: 760px;
+	max-width: 1000px;
 	height: 100vh;
 	margin: 0 auto;
-	padding: 5vh 0;
+	padding: 5vh 16px;
 	box-sizing: border-box;
 	display: flex;
 	flex-direction: column;
 }
 .Palette-image-container {
-	width: 100vw;
-	max-width: 760px;
+	width: 100%;
 	padding: 0;
 	flex-grow: 0;
 }
 .Palette-image {
-	width: calc(100vw - 8px);
+	width: calc(100% - 8px);
 	border-radius: 4px;
 	object-fit: cover;
-	max-width: 752px;
-	max-height: 60vh;
+	max-height: 64vh;
 	margin: 0 4px;
 	box-sizing: border-box;
 }
 .Palette-colors-list {
-	max-width: 760px;
+	width: 100%;
 	flex: 1 1 50px;
 	display: flex;
 }
 .Palette-colors-list-item {
 	flex: 1 1 50px;
-	/* max-width: 200px; */
 	margin: 4px;
 	height: calc(100% - 8px);
 	text-transform: uppercase;

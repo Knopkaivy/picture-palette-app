@@ -1,13 +1,15 @@
 .Navbar-container {
 	width: 100vw;
-	max-width: 760px;
+	max-width: 1000px;
 	margin: 0 auto;
 }
 .Navbar {
 	width: 100%;
-	max-width: 760px;
+	max-width: 1000px;
 	height: 5vh;
 	margin: 0 auto;
+	padding: 0 16px;
+	box-sizing: border-box;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
@@ -26,4 +28,5 @@
 }
 .Navbar-link {
 	margin: 0 4px;
+	font-size: inherit;
 }
