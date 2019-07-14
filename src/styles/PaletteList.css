@@ -56,3 +56,24 @@
 	flex: 1 1 5px;
 	height: 42px;
 }
+.Delete-modal-title {
+	background-color: #fff5ee;
+	padding: 20px 24px;
+	margin: 0;
+	color: #1f1c0c;
+}
+.Delete-modal-button {
+	border: none;
+	outline: none;
+	cursor: pointer;
+	border-radius: 4px;
+	background-color: transparent;
+	padding: 4px 16px;
+	font-size: inherit;
+	font-family: inherit;
+	font-weight: 600;
+	text-transform: capitalize;
+}
+.delete {
+	color: #e03624;
+}

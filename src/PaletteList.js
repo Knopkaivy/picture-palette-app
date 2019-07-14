@@ -59,24 +59,16 @@ class PaletteList extends Component {
 					aria-labelledby='delete-dialog-title'
 					onClose={this.closeDialog}
 				>
-					<DialogTitle id='delete-dialog-title'>Delete This Palette?</DialogTitle>
-					<List>
-						<ListItem button onClick={this.handleDelete}>
-							<ListItemAvatar>
-								<Avatar style={{ backgroundColor: blue[100], color: blue[600] }}>
-									<CheckIcon />
-								</Avatar>
-							</ListItemAvatar>
-							<ListItemText primary='Delete' />
-						</ListItem>
-						<ListItem button onClick={this.closeDialog}>
-							<ListItemAvatar>
-								<Avatar style={{ backgroundColor: red[100], color: red[600] }}>
-									<CloseIcon />
-								</Avatar>
-							</ListItemAvatar>
-							<ListItemText primary='Cancel' />
-						</ListItem>
+					<h3 className='Delete-modal-title' id='delete-dialog-title'>
+						Delete This Palette?
+					</h3>
+					<List style={{ backgroundColor: '#fff5ee', textAlign: 'center' }}>
+						<button className='Delete-modal-button delete' onClick={this.handleDelete} color='primary'>
+							Delete
+						</button>
+						<button className='Delete-modal-button' color='primary' onClick={this.closeDialog}>
+							Cancel
+						</button>
 					</List>
 				</Dialog>
 			</div>
