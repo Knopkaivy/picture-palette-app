@@ -7,6 +7,7 @@ import Navbar from './Navbar';
 import Palette from './Palette';
 import PaletteList from './PaletteList';
 import seedPalettes from './seedPalettes';
+import history from './history';
 
 class App extends Component {
 	constructor(props) {
@@ -17,6 +18,7 @@ class App extends Component {
 		this.savePalette = this.savePalette.bind(this);
 		this.findPalette = this.findPalette.bind(this);
 		this.deletePalette = this.deletePalette.bind(this);
+		this.syncLocalStorage = this.syncLocalStorage.bind(this);
 	}
 	generateNewPalette(imageURL, colors) {
 		let colorPalette = {};
@@ -35,10 +37,13 @@ class App extends Component {
 			};
 		});
 		this.savePalette(colorPalette);
+		history.push(`/palette/${colorPalette.id}`);
+		history.go();
 	}
-	savePalette(newPalette) {
-		this.setState({ palettes: [ newPalette, ...this.state.palettes ] }, this.syncLocalStorage);
-	}
+	savePalette = async (newPalette) => {
+		await this.setState({ palettes: [ newPalette, ...this.state.palettes ] });
+		this.syncLocalStorage();
+	};
 	findPalette(id) {
 		let foundPalette = this.state.palettes.find((palette) => palette.id === id);
 		if (foundPalette === undefined) foundPalette = this.state.palettes[0]; //if user enters nonexistent id in address bar

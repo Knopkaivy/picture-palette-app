@@ -27,7 +27,6 @@ class NewPaletteModal extends Component {
 
 	createNewPalette = async () => {
 		await this.generateColors();
-		console.log('from createNewPalette func', this.state.colors);
 		this.props.createNewPalette(this.state.newImageURL, this.state.colors);
 		this.clearData();
 		this.props.handleClose();
@@ -40,7 +39,6 @@ class NewPaletteModal extends Component {
 			if (swatches.hasOwnProperty(swatch) && swatches[swatch]) colors.push(swatches[swatch].getHex());
 		}
 		this.setState({ colors: colors });
-		console.log('from generateColors func', this.state.colors);
 	};
 	clearData() {
 		this.setState({
