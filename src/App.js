@@ -8,6 +8,7 @@ import Palette from './Palette';
 import PaletteList from './PaletteList';
 import seedPalettes from './seedPalettes';
 import history from './history';
+import './styles/App.css';
 
 class App extends Component {
 	constructor(props) {
@@ -62,37 +63,39 @@ class App extends Component {
 	render() {
 		return (
 			<div className='App'>
-				<Navbar generateNewPalette={this.generateNewPalette} />
+				<div className='App-container'>
+					<Navbar generateNewPalette={this.generateNewPalette} />
 
-				<Switch>
-					<Route
-						exact
-						path='/'
-						render={(routeProps) => (
-							<PaletteList
-								palettes={this.state.palettes}
-								deletePalette={this.deletePalette}
-								{...routeProps}
-							/>
-						)}
-					/>
-					<Route
-						exact
-						path='/palette/:id'
-						render={(routeProps) => (
-							<Palette palette={this.findPalette(routeProps.match.params.id)} {...routeProps} />
-						)}
-					/>
-					<Route
-						render={(routeProps) => (
-							<PaletteList
-								palettes={this.state.palettes}
-								deletePalette={this.deletePalette}
-								{...routeProps}
-							/>
-						)}
-					/>
-				</Switch>
+					<Switch>
+						<Route
+							exact
+							path='/'
+							render={(routeProps) => (
+								<PaletteList
+									palettes={this.state.palettes}
+									deletePalette={this.deletePalette}
+									{...routeProps}
+								/>
+							)}
+						/>
+						<Route
+							exact
+							path='/palette/:id'
+							render={(routeProps) => (
+								<Palette palette={this.findPalette(routeProps.match.params.id)} {...routeProps} />
+							)}
+						/>
+						<Route
+							render={(routeProps) => (
+								<PaletteList
+									palettes={this.state.palettes}
+									deletePalette={this.deletePalette}
+									{...routeProps}
+								/>
+							)}
+						/>
+					</Switch>
+				</div>
 			</div>
 		);
 	}
