@@ -6,7 +6,7 @@
 .Navbar {
 	width: 100%;
 	max-width: 1000px;
-	height: 5vh;
+	height: 6vh;
 	margin: 0 auto;
 	padding: 0 16px;
 	box-sizing: border-box;
@@ -24,7 +24,7 @@
 }
 .Logo {
 	margin-left: 4px;
-	font-size: 1.2rem;
+	font-size: 1.4rem;
 	font-weight: 600;
 	text-transform: capitalize;
 	color: #e03624 !important;
@@ -36,8 +36,7 @@
 	border-radius: 4px;
 	background-color: #e03624;
 	color: white;
-	margin-right: 16px;
-	padding: 1px 12px;
+	padding: 4px 16px;
 }
 .Navbar-button,
 .Navbar-link {
@@ -45,4 +44,5 @@
 	font-family: inherit;
 	font-weight: inherit;
 	text-transform: capitalize;
+	margin-right: 16px;
 }

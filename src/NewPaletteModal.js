@@ -7,6 +7,7 @@ import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
+import './styles/NewPaletteModal.css';
 
 class NewPaletteModal extends Component {
 	constructor(props) {
@@ -50,28 +51,32 @@ class NewPaletteModal extends Component {
 	render() {
 		return (
 			<Dialog open={this.props.open} onClose={this.props.handleClose} aria-labelledby='form-dialog-title'>
-				<DialogTitle id='form-dialog-title'>Create New Palette</DialogTitle>
-				<DialogContent>
-					<DialogContentText>
-						To create new palette please enter image address in the field below.
-					</DialogContentText>
+				{/* <DialogTitle
+					id='form-dialog-title'
+					style={{ backgroundColor: '#fff5ee', fontFamily: 'inherit !important' }}
+				>
+					Create New Palette
+				</DialogTitle> */}
+				<h3 className='Dialog-title'>Create New Palette</h3>
+				<DialogContent style={{ backgroundColor: '#fff5ee', width: '500px' }}>
+					{/* <h6>To create new palette please enter image address in the field below.</h6> */}
 					<TextField
 						autoFocus
 						margin='dense'
 						id='imageURL'
-						label='Image URL'
+						label='Enter Image URL Here'
 						type='text'
 						fullWidth
 						onChange={this.updateImageURL}
 					/>
 				</DialogContent>
-				<DialogActions>
-					<Button onClick={this.props.handleClose} color='primary'>
+				<DialogActions style={{ backgroundColor: '#fff5ee' }}>
+					<button className='Dialog-button' onClick={this.props.handleClose} color='primary'>
 						Cancel
-					</Button>
-					<Button color='primary' onClick={this.createNewPalette}>
+					</button>
+					<button className='Dialog-button create' color='primary' onClick={this.createNewPalette}>
 						Create
-					</Button>
+					</button>
 				</DialogActions>
 			</Dialog>
 		);

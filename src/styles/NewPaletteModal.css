@@ -1,0 +1,21 @@
+.Dialog-title {
+	background-color: #fff5ee;
+	padding: 20px 24px;
+	margin: 0;
+	color: #e03624;
+}
+.Dialog-button {
+	border: none;
+	outline: none;
+	cursor: pointer;
+	border-radius: 4px;
+	background-color: transparent;
+	padding: 4px 16px;
+	font-size: inherit;
+	font-family: inherit;
+	font-weight: 600;
+	text-transform: capitalize;
+}
+.create {
+	color: #e03624;
+}
