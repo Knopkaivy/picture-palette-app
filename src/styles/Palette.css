@@ -30,7 +30,7 @@
 	color: #1f1c0c;
 }
 .Color-box-light {
-	color: rgba(255, 255, 255, 0.8);
+	color: rgba(255, 255, 255, 0.9);
 }
 .Color-box-dark,
 .Color-box-light {
@@ -47,7 +47,7 @@
 }
 .Color-name {
 	color: inherit;
-	font-size: .8rem;
+	/* font-size: .8rem; */
 	padding-left: 4px;
 	text-transform: lowercase;
 }
